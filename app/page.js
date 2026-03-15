@@ -221,6 +221,8 @@ export default function Home() {
   };
 
   const onGalleryPage = pageIndex === storyPages.length;
+  const pageBody = activePage?.body ?? [];
+  const pageEyebrow = activePage?.eyebrow ?? `Page ${String(pageIndex + 1).padStart(2, "0")}`;
 
   return (
     <main className="pageShell">
@@ -299,10 +301,10 @@ export default function Home() {
           {!onGalleryPage ? (
             <div className="storyPanel" key={activePage.id}>
               <div className="storyText">
-                <p className="eyebrow">{activePage.eyebrow}</p>
+                <p className="eyebrow">{pageEyebrow}</p>
                 <h2>{activePage.title}</h2>
                 <div className="storyParagraphs">
-                  {activePage.body.map((paragraph) => (
+                  {pageBody.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
