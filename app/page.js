@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const withBasePath = (path) => `${basePath}${path}`;
+
 const storyPages = [
   {
     id: "cover",
@@ -13,7 +16,7 @@ const storyPages = [
     ],
     mood: "moodRose",
     mediaType: "image",
-    image: "/images/first_image.jpg",
+    image: withBasePath("/images/first_image.jpg"),
   },
   {
     id: "songs",
@@ -24,7 +27,7 @@ const storyPages = [
     ],
     mood: "moodPeach",
     mediaType: "image",
-    image: "/images/second_image.jpg",
+    image: withBasePath("/images/second_image.jpg"),
   },
   {
     id: "talent",
@@ -35,8 +38,8 @@ const storyPages = [
     ],
     mood: "moodPink",
     mediaType: "video",
-    image: "/images/birthday-gif.gif",
-    video: "/videos/second_video.mp4",
+    image: withBasePath("/images/birthday-gif.gif"),
+    video: withBasePath("/videos/second_video.mp4"),
   },
   {
     id: "love",
@@ -47,7 +50,7 @@ const storyPages = [
     ],
     mood: "moodGold",
     mediaType: "image",
-    image: "/images/third_image.jpg",
+    image: withBasePath("/images/third_image.jpg"),
   },
   {
     id: "stepping-up",
@@ -58,8 +61,8 @@ const storyPages = [
     ],
     mood: "moodLavender",
     mediaType: "video",
-    image: "/images/third_image.jpg",
-    video: "/videos/third_video.mp4",
+    image: withBasePath("/images/third_image.jpg"),
+    video: withBasePath("/videos/third_video.mp4"),
   },
   {
     id: "protection",
@@ -70,7 +73,7 @@ const storyPages = [
     ],
     mood: "moodRoseDeep",
     mediaType: "image",
-    image: "/images/birthday-gif.gif",
+    image: withBasePath("/images/birthday-gif.gif"),
   },
   {
     id: "ending",
@@ -91,8 +94,8 @@ const galleryItems = [
     accent: "rose",
     tilt: "tiltLeft",
     mediaType: "video",
-    mediaSrc: "/videos/first_video.mp4",
-    poster: "/images/first_image.jpg",
+    mediaSrc: withBasePath("/videos/first_video.mp4"),
+    poster: withBasePath("/images/first_image.jpg"),
   },
   {
     title: "Soft Motion",
@@ -100,8 +103,8 @@ const galleryItems = [
     accent: "peach",
     tilt: "tiltRight",
     mediaType: "video",
-    mediaSrc: "/videos/second_video.mp4",
-    poster: "/images/second_image.jpg",
+    mediaSrc: withBasePath("/videos/second_video.mp4"),
+    poster: withBasePath("/images/second_image.jpg"),
   },
   {
     title: "Pretty Frame",
@@ -109,7 +112,7 @@ const galleryItems = [
     accent: "pink",
     tilt: "tiltForward",
     mediaType: "image",
-    mediaSrc: "/images/third_image.jpg",
+    mediaSrc: withBasePath("/images/third_image.jpg"),
   },
   {
     title: "First Baby",
@@ -117,7 +120,7 @@ const galleryItems = [
     accent: "gold",
     tilt: "tiltSoft",
     mediaType: "image",
-    mediaSrc: "/images/first_image.jpg",
+    mediaSrc: withBasePath("/images/first_image.jpg"),
   },
 ];
 
@@ -226,7 +229,7 @@ export default function Home() {
 
   return (
     <main className="pageShell">
-      <audio ref={audioRef} src="/audio/pretty_girls.mp3" loop preload="auto" />
+      <audio ref={audioRef} src={withBasePath("/audio/pretty_girls.mp3")} loop preload="auto" />
 
       <div className="ambient ambientOne" />
       <div className="ambient ambientTwo" />
@@ -256,14 +259,14 @@ export default function Home() {
                   muted
                   loop
                   playsInline
-                  poster="/images/birthday-gif.gif"
+                  poster={withBasePath("/images/birthday-gif.gif")}
                   onError={() => setShowHeroVideo(false)}
                 >
-                  <source src="/videos/first_video.mp4" type="video/mp4" />
+                  <source src={withBasePath("/videos/first_video.mp4")} type="video/mp4" />
                 </video>
               ) : (
                 <Image
-                  src="/images/birthday-gif.gif"
+                  src={withBasePath("/images/birthday-gif.gif")}
                   alt="Birthday hug"
                   fill
                   sizes="(max-width: 900px) 80vw, 30vw"
