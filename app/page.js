@@ -18,7 +18,7 @@ const storyPages = [
   },
   {
     id: "songs",
-    title: "The songs are weird on purpose.",
+    title: "This song is for you.",
   
     mood: "moodPeach",
     mediaType: "image",
@@ -67,14 +67,15 @@ const storyPages = [
       "I'm always here if you need anything. Wag lang pera. HAHAHAHA.",
     ],
     mood: "moodRoseDeep",
-    mediaType: "image",
+    mediaType: "video",
     image: withBasePath("/images/birthday-gif.gif"),
+    video: withBasePath("/videos/fourth_video.mp4"),
   },
   {
     id: "ending",
     title: "Ingat kayo d'yan. Miss na kita.",
     body: [
-      "Miss na kita, miss na kayo. Kahit malayo, nandito pa rin ang love ko for you.",
+      "Miss na kita, miss ko na kayo. Kahit malayo, nandito pa rin ang love ko for you.",
       "Mwa mwa. Happy birthday, little sister.",
     ],
     mood: "moodSoft",
@@ -222,7 +223,6 @@ export default function Home() {
 
   const onGalleryPage = pageIndex === storyPages.length;
   const pageBody = activePage?.body ?? [];
-  const pageEyebrow = activePage?.eyebrow ?? `Page ${String(pageIndex + 1).padStart(2, "0")}`;
 
   return (
     <main className="pageShell">
@@ -301,7 +301,6 @@ export default function Home() {
           {!onGalleryPage ? (
             <div className="storyPanel" key={activePage.id}>
               <div className="storyText">
-                <p className="eyebrow">{pageEyebrow}</p>
                 <h2>{activePage.title}</h2>
                 <div className="storyParagraphs">
                   {pageBody.map((paragraph) => (
