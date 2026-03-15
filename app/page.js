@@ -12,7 +12,6 @@ const storyPages = [
     title: "Happy birthday to my first baby.",
     body: [
       "Akala mo lang hindi ikaw ang favorite ko, pero ikaw talaga.",
-      "This page is your little birthday universe. Soft, pink, dramatic, and made just for you.",
     ],
     mood: "moodRose",
     mediaType: "image",
@@ -21,10 +20,7 @@ const storyPages = [
   {
     id: "songs",
     title: "The songs are weird on purpose.",
-    body: [
-      "Anyway, you might find the songs weird, but may meaning lahat 'yan. Intindihin mo na lang.",
-      "Every track here is part of the message, so the music is not just background, it is part of the story.",
-    ],
+  
     mood: "moodPeach",
     mediaType: "image",
     image: withBasePath("/images/second_image.jpg"),
@@ -239,7 +235,7 @@ export default function Home() {
         <section className="welcomeScene">
           <div className="welcomeCopy">
             <p className="eyebrow">Birthday Surprise</p>
-            <h1>A little surprise birthday for my Baby Khalil ko.</h1>
+            <h1>A little surprise birthday for my Baby Khalil.</h1>
            
             <div className="heroActions">
               <button className="primaryButton" onClick={startExperience}>
@@ -297,7 +293,7 @@ export default function Home() {
 
           <div className="storyTopbar">
             <div>
-              <p className="eyebrow">Birthday Letter for my Baby Khalil ko</p>
+              <p className="eyebrow">Birthday Letter for my Baby Khalil</p>
             </div>
             <button className="ghostButton compactButton" onClick={toggleAudio}>
               {isPlaying ? "Pause music" : "Play music"}
@@ -369,10 +365,6 @@ export default function Home() {
               <div className="sectionHeader">
                 <p className="eyebrow">Final Page</p>
                 <h2>Four little highlights for the birthday girl.</h2>
-                <p className="galleryIntro">
-                  This last page keeps the 3D photo mood and works best once you replace
-                  the repeated GIF with real pictures.
-                </p>
               </div>
 
               <div className="galleryGrid">
@@ -404,11 +396,6 @@ export default function Home() {
                         />
                       )}
                     </div>
-                    <div className="galleryContent">
-                      <p className="galleryLabel">highlight {String(index + 1).padStart(2, "0")}</p>
-                      <h3>{item.title}</h3>
-                      <p>{item.caption}</p>
-                    </div>
                   </article>
                 ))}
               </div>
@@ -436,7 +423,7 @@ export default function Home() {
                 onClick={nextPage}
                 disabled={pageIndex === totalPages - 1}
               >
-                {onGalleryPage ? "Finished" : "Next page"}
+                {onGalleryPage ? "Finished" : "Next"}
               </button>
             </div>
           </div>
