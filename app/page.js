@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -261,13 +260,10 @@ export default function Home() {
                   <source src={withBasePath("/videos/first_video.mp4")} type="video/mp4" />
                 </video>
               ) : (
-                <Image
+                <img
                   src={withBasePath("/images/birthday-gif.gif")}
                   alt="Birthday hug"
-                  fill
-                  sizes="(max-width: 900px) 80vw, 30vw"
                   className="portraitImage"
-                  priority
                 />
               )}
             </div>
@@ -348,11 +344,9 @@ export default function Home() {
                         </div>
                       </div>
                     ) : (
-                      <Image
+                      <img
                         src={activePage.image}
                         alt={activePage.title}
-                        fill
-                        sizes="(max-width: 900px) 80vw, 30vw"
                         className="storyImage"
                       />
                     )}
@@ -387,11 +381,9 @@ export default function Home() {
                           <source src={item.mediaSrc} type="video/mp4" />
                         </video>
                       ) : (
-                        <Image
+                        <img
                           src={item.mediaSrc}
                           alt={item.title}
-                          fill
-                          sizes="(max-width: 900px) 90vw, (max-width: 1200px) 40vw, 22vw"
                           className="galleryImage"
                         />
                       )}
